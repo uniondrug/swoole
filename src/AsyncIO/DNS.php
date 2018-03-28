@@ -3,15 +3,15 @@
  * @author    jan huang <bboyjanhuang@gmail.com>
  * @copyright 2016
  *
- * @see      https://www.github.com/janhuang
- * @see      http://www.fast-d.cn/
+ * @see       https://www.github.com/janhuang
+ * @see       http://www.fast-d.cn/
  */
 
 namespace Uniondrug\Swoole\AsyncIO;
 
-
 /**
  * Class DNS
+ *
  * @package FastD\Swoole\AsyncIO
  */
 class DNS
@@ -28,7 +28,8 @@ class DNS
 
     /**
      * DNS constructor.
-     * @param $host
+     *
+     * @param       $host
      * @param array $options
      */
     public function __construct($host, array $options = [])
@@ -51,5 +52,7 @@ class DNS
      * @param $host
      * @param $ip
      */
-    public function doLookup($host, $ip) {}
+    public function doLookup($host, $ip)
+    {
+    }
 }

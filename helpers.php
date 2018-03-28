@@ -10,7 +10,7 @@
 /**
  * @param $name
  */
-function process_rename ($name)
+function process_rename($name)
 {
     set_error_handler(function () {
     });
@@ -27,8 +27,9 @@ function process_rename ($name)
 /**
  * Kill somebody
  *
- * @param $pid
+ * @param     $pid
  * @param int $signo
+ *
  * @return int
  */
 function process_kill($pid, $signo = SIGTERM)
@@ -38,6 +39,7 @@ function process_kill($pid, $signo = SIGTERM)
 
 /**
  * @param bool $blocking
+ *
  * @return array
  */
 function process_wait($blocking = true)
@@ -48,6 +50,7 @@ function process_wait($blocking = true)
 /**
  * @param bool $nochdir
  * @param bool $noclose
+ *
  * @return mixed
  */
 function process_daemon($nochdir = true, $noclose = true)
@@ -56,8 +59,9 @@ function process_daemon($nochdir = true, $noclose = true)
 }
 
 /**
- * @param $signo
+ * @param          $signo
  * @param callable $callback
+ *
  * @return mixed
  */
 function process_signal($signo, callable $callback)
@@ -68,6 +72,7 @@ function process_signal($signo, callable $callback)
 /**
  * @param $interval
  * @param $type
+ *
  * @return bool
  */
 function process_alarm($interval, $type = ITIMER_REAL)
@@ -77,6 +82,7 @@ function process_alarm($interval, $type = ITIMER_REAL)
 
 /**
  * @param array $cpus
+ *
  * @return mixed
  */
 function process_affinity(array $cpus)
@@ -85,8 +91,9 @@ function process_affinity(array $cpus)
 }
 
 /**
- * @param $interval
+ * @param          $interval
  * @param callable $callback
+ *
  * @return mixed
  */
 function timer_tick($interval, $callback, array $params = [])
@@ -95,9 +102,10 @@ function timer_tick($interval, $callback, array $params = [])
 }
 
 /**
- * @param $interval
+ * @param          $interval
  * @param callable $callback
- * @param array $params
+ * @param array    $params
+ *
  * @return mixed
  */
 function timer_after($interval, $callback, array $params = [])
@@ -107,6 +115,7 @@ function timer_after($interval, $callback, array $params = [])
 
 /**
  * @param $timerId
+ *
  * @return mixed
  */
 function timer_clear($timerId)
@@ -125,7 +134,7 @@ function get_local_ip()
         '172\.1[6-9]\.',
         '172\.2[0-9]\.',
         '172\.31\.',
-        '192\.168\.'
+        '192\.168\.',
     ];
 
     foreach ($serverIps as $serverIp) {
@@ -139,6 +148,7 @@ function get_local_ip()
 
 /**
  * @param $keyword
+ *
  * @return bool
  */
 function process_is_running($keyword)

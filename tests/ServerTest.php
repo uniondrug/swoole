@@ -7,18 +7,16 @@
  * @link      http://www.fast-d.cn/
  */
 
-
-use Uniondrug\Swoole\Server;
 use Uniondrug\Swoole\Server\TCP;
-
 
 class TcpServer extends TCP
 {
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $data
-     * @param $from_id
+     * @param               $fd
+     * @param               $data
+     * @param               $from_id
+     *
      * @return mixed
      */
     public function doWork(swoole_server $server, $fd, $data, $from_id)
@@ -50,11 +48,11 @@ class ServerTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(9529, $server->getSwoole()->port);
         $this->assertEquals('/tmp/foo.pid', $server->getPidFile());
         $this->assertEquals([
-            'daemonize' => true,
-            'task_worker_num' => 8,
-            'task_tmpdir' => '/tmp',
-            'pid_file' => '/tmp/foo.pid',
-            'worker_num' => 8,
+            'daemonize'         => true,
+            'task_worker_num'   => 8,
+            'task_tmpdir'       => '/tmp',
+            'pid_file'          => '/tmp/foo.pid',
+            'worker_num'        => 8,
             'open_cpu_affinity' => true,
         ], $server->getSwoole()->setting);
     }
@@ -67,11 +65,11 @@ class ServerTest extends PHPUnit_Framework_TestCase
         $server->daemon();
         $server->bootstrap();
         $this->assertEquals([
-            'daemonize' => true,
-            'pid_file' => '/tmp/foo.pid',
-            'task_worker_num' => 8,
-            'task_tmpdir' => '/tmp',
-            'worker_num' => 8,
+            'daemonize'         => true,
+            'pid_file'          => '/tmp/foo.pid',
+            'task_worker_num'   => 8,
+            'task_tmpdir'       => '/tmp',
+            'worker_num'        => 8,
             'open_cpu_affinity' => true,
         ], $server->getSwoole()->setting);
         $this->assertEquals('/tmp/foo.pid', $server->getPidFile());

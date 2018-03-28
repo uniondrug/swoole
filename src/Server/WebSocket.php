@@ -9,12 +9,11 @@
 
 namespace Uniondrug\Swoole\Server;
 
-use Uniondrug\Swoole\Server;
-use swoole_server;
-use swoole_websocket_server;
 use swoole_http_request;
-use swoole_http_response;
+use swoole_server;
 use swoole_websocket_frame;
+use swoole_websocket_server;
+use Uniondrug\Swoole\Server;
 
 /**
  * Class WebSocketServer
@@ -27,7 +26,8 @@ abstract class WebSocket extends Server
 
     /**
      * @param swoole_websocket_server $server
-     * @param swoole_http_request $request
+     * @param swoole_http_request     $request
+     *
      * @return mixed
      */
     public function onOpen(swoole_websocket_server $server, swoole_http_request $request)
@@ -37,14 +37,18 @@ abstract class WebSocket extends Server
 
     /**
      * @param swoole_websocket_server $server
-     * @param swoole_http_request $request
+     * @param swoole_http_request     $request
+     *
      * @return mixed
      */
-    public function doOpen(swoole_websocket_server $server, swoole_http_request $request){}
+    public function doOpen(swoole_websocket_server $server, swoole_http_request $request)
+    {
+    }
 
     /**
-     * @param swoole_server $server
+     * @param swoole_server          $server
      * @param swoole_websocket_frame $frame
+     *
      * @return mixed
      */
     public function onMessage(swoole_server $server, swoole_websocket_frame $frame)
@@ -53,8 +57,9 @@ abstract class WebSocket extends Server
     }
 
     /**
-     * @param swoole_server $server
+     * @param swoole_server          $server
      * @param swoole_websocket_frame $frame
+     *
      * @return mixed
      */
     abstract public function doMessage(swoole_server $server, swoole_websocket_frame $frame);
@@ -69,32 +74,42 @@ abstract class WebSocket extends Server
 
     /**
      * @param swoole_server $server
-     * @param $data
-     * @param $taskId
-     * @param $workerId
+     * @param               $data
+     * @param               $taskId
+     * @param               $workerId
+     *
      * @return mixed
      */
-    public function doTask(swoole_server $server, $data, $taskId, $workerId){}
+    public function doTask(swoole_server $server, $data, $taskId, $workerId)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $data
-     * @param $taskId
+     * @param               $data
+     * @param               $taskId
+     *
      * @return mixed
      */
-    public function doFinish(swoole_server $server, $data, $taskId){}
+    public function doFinish(swoole_server $server, $data, $taskId)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $from_id
+     * @param               $fd
+     * @param               $from_id
      */
-    public function doConnect(swoole_server $server, $fd, $from_id){}
+    public function doConnect(swoole_server $server, $fd, $from_id)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $fromId
+     * @param               $fd
+     * @param               $fromId
      */
-    public function doClose(swoole_server $server, $fd, $fromId){}
+    public function doClose(swoole_server $server, $fd, $fromId)
+    {
+    }
 }

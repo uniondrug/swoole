@@ -1,6 +1,6 @@
 {
   "name": "uniondrug/swoole",
-  "description": "Uniondrug swoole (based on FastD\\Swoole)",
+  "description": "Uniondrug swoole (based on fastd/swoole)",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -13,8 +13,8 @@
   "require": {
     "php": ">=5.6",
     "symfony/console": "^3.0",
-    "uniondrug/packet": "^1.0",
-    "uniondrug/http": "^1.0"
+    "uniondrug/packet": "^2.0",
+    "uniondrug/http": "^2.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^5.0"

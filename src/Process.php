@@ -9,13 +9,13 @@
 
 namespace Uniondrug\Swoole;
 
-
 use swoole_process;
 
 /**
  * Process manager
  *
  * Class Process
+ *
  * @package FastD\Swoole
  */
 class Process
@@ -62,8 +62,9 @@ class Process
 
     /**
      * Process constructor.
-     * @param $name
-     * @param $callback
+     *
+     * @param      $name
+     * @param      $callback
      * @param bool $redirect
      * @param bool $pipe
      */
@@ -82,6 +83,7 @@ class Process
 
     /**
      * @param $name
+     *
      * @return $this
      */
     public function name($name)
@@ -119,6 +121,7 @@ class Process
 
     /**
      * @param int $size
+     *
      * @return mixed
      */
     public function read($size = 8192)
@@ -128,6 +131,7 @@ class Process
 
     /**
      * @param $data
+     *
      * @return mixed
      */
     public function write($data)
@@ -145,6 +149,7 @@ class Process
 
     /**
      * @param Server $server
+     *
      * @return $this
      */
     public function withServer(Server $server)
@@ -155,8 +160,9 @@ class Process
     }
 
     /**
-     * @param $signo
+     * @param          $signo
      * @param callable $callback
+     *
      * @return mixed
      */
     public function signal($signo, callable $callback)
@@ -166,7 +172,7 @@ class Process
 
     /**
      * @param callable $callback
-     * @param bool $blocking
+     * @param bool     $blocking
      */
     public function wait(callable $callback, $blocking = true)
     {
@@ -176,8 +182,9 @@ class Process
     }
 
     /**
-     * @param $pid
+     * @param     $pid
      * @param int $signo
+     *
      * @return int
      */
     public function kill($pid, $signo = SIGTERM)
@@ -187,6 +194,7 @@ class Process
 
     /**
      * @param $pid
+     *
      * @return int
      */
     public function exists($pid)
@@ -208,6 +216,7 @@ class Process
 
     /**
      * @param int $length
+     *
      * @return int
      */
     public function fork($length = 1)
@@ -253,12 +262,16 @@ class Process
      * Process handle
      *
      * @param swoole_process $swoole_process
+     *
      * @return callable
      */
-    public function handle(swoole_process $swoole_process){}
+    public function handle(swoole_process $swoole_process)
+    {
+    }
 
     /**
      * @param swoole_process $worker
+     *
      * @return void
      */
     public function runProcess(swoole_process $worker)

@@ -9,7 +9,6 @@
 
 namespace Uniondrug\Swoole\Support;
 
-
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -81,6 +80,7 @@ class Watcher
     /**
      * @param array         $directories
      * @param \Closure|null $callback
+     *
      * @return Watcher
      * @throws \RuntimeException
      */
@@ -108,7 +108,7 @@ class Watcher
 
             foreach ($events as $event) {
                 if (!empty($event['name'])) {
-                    $this->output->writeln(sprintf("[%s]\t" . sprintf('<info>[%s]</info> modify', $event['name']), date('Y-m-d H:i:s'))) ;
+                    $this->output->writeln(sprintf("[%s]\t" . sprintf('<info>[%s]</info> modify', $event['name']), date('Y-m-d H:i:s')));
                 }
             }
 

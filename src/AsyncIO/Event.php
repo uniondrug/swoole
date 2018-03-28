@@ -3,17 +3,17 @@
  * @author    jan huang <bboyjanhuang@gmail.com>
  * @copyright 2016
  *
- * @see      https://www.github.com/janhuang
- * @see      http://www.fast-d.cn/
+ * @see       https://www.github.com/janhuang
+ * @see       http://www.fast-d.cn/
  */
 
 namespace Uniondrug\Swoole\AsyncIO;
-
 
 use Uniondrug\Swoole\EventLoop;
 
 /**
  * Class EventAbstract
+ *
  * @package FastD\Swoole\AsyncIO
  */
 class Event
@@ -35,7 +35,8 @@ class Event
 
     /**
      * EventAbstract constructor.
-     * @param $resource
+     *
+     * @param      $resource
      * @param null $flag
      */
     public function __construct($resource, $flag = null)
@@ -47,6 +48,7 @@ class Event
 
     /**
      * @param EventLoop $eventLoop
+     *
      * @return $this
      */
     public function setEventLoop(EventLoop $eventLoop)
@@ -91,12 +93,16 @@ class Event
     /**
      * @param $data
      */
-    public function doRead($data) {}
+    public function doRead($data)
+    {
+    }
 
     /**
      * @param $resource
      */
-    public function doWrite($resource) {}
+    public function doWrite($resource)
+    {
+    }
 
     /**
      * Exit event

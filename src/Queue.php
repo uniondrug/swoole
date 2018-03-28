@@ -9,17 +9,18 @@
 
 namespace Uniondrug\Swoole;
 
-
 /**
  * Class Queue
+ *
  * @package FastD\Swoole
  */
 class Queue extends Process
 {
     /**
      * Queue constructor.
-     * @param $name
-     * @param $callback
+     *
+     * @param      $name
+     * @param      $callback
      * @param bool $stdout
      * @param bool $pipe
      */
@@ -48,6 +49,7 @@ class Queue extends Process
 
     /**
      * @param $data
+     *
      * @return mixed
      */
     public function push($data)
@@ -57,6 +59,7 @@ class Queue extends Process
 
     /**
      * @param int $maxsize
+     *
      * @return mixed
      */
     public function pop($maxsize = 8192)

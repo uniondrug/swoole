@@ -3,15 +3,15 @@
  * @author    jan huang <bboyjanhuang@gmail.com>
  * @copyright 2016
  *
- * @see      https://www.github.com/janhuang
- * @see      http://www.fast-d.cn/
+ * @see       https://www.github.com/janhuang
+ * @see       http://www.fast-d.cn/
  */
 
 namespace Uniondrug\Swoole;
 
-
 /**
  * Class Timer
+ *
  * @package FastD\Swoole
  */
 abstract class Timer
@@ -38,7 +38,8 @@ abstract class Timer
 
     /**
      * Timer constructor.
-     * @param int $ms
+     *
+     * @param int   $ms
      * @param array $params
      */
     public function __construct($ms = 1000, array $params = [])
@@ -58,6 +59,7 @@ abstract class Timer
 
     /**
      * @param Server $server
+     *
      * @return $this
      */
     public function withServer(Server $server)
@@ -96,8 +98,9 @@ abstract class Timer
     }
 
     /**
-     * @param $id
+     * @param       $id
      * @param array $params
+     *
      * @return mixed
      */
     abstract public function handle($id, array $params = []);

@@ -3,27 +3,28 @@
  * @author    jan huang <bboyjanhuang@gmail.com>
  * @copyright 2016
  *
- * @see      https://www.github.com/janhuang
- * @see      http://www.fast-d.cn/
+ * @see       https://www.github.com/janhuang
+ * @see       http://www.fast-d.cn/
  */
 
 namespace Uniondrug\Swoole\AsyncIO;
-
 
 use SplFileObject;
 
 /**
  * Class File
+ *
  * @package FastD\Swoole\AsyncIO
  */
 class File extends SplFileObject
 {
     /**
      * File constructor.
-     * @param $file_name
+     *
+     * @param        $file_name
      * @param string $open_mode
-     * @param bool $use_include_path
-     * @param null $context
+     * @param bool   $use_include_path
+     * @param null   $context
      */
     public function __construct($file_name, $open_mode = 'wb+', $use_include_path = false, $context = null)
     {
@@ -35,8 +36,9 @@ class File extends SplFileObject
     }
 
     /**
-     * @param $content
+     * @param     $content
      * @param int $offset
+     *
      * @return mixed
      */
     public function write($content, $offset = -1)
@@ -56,6 +58,7 @@ class File extends SplFileObject
     /**
      * @param $filename
      * @param $content
+     *
      * @return bool
      */
     public function doRead($filename, $content)
@@ -66,6 +69,7 @@ class File extends SplFileObject
     /**
      * @param $filename
      * @param $content
+     *
      * @return bool
      */
     public function doWrite($filename, $content)

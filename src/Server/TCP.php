@@ -9,8 +9,8 @@
 
 namespace Uniondrug\Swoole\Server;
 
-use Uniondrug\Swoole\Server;
 use swoole_server;
+use Uniondrug\Swoole\Server;
 
 /**
  * Class Tcp
@@ -23,9 +23,10 @@ abstract class TCP extends Server
      * 服务器同时监听TCP/UDP端口时，收到TCP协议的数据会回调onReceive，收到UDP数据包回调onPacket
      *
      * @param swoole_server $server
-     * @param $fd
-     * @param $from_id
-     * @param $data
+     * @param               $fd
+     * @param               $from_id
+     * @param               $data
+     *
      * @return void
      */
     public function onReceive(swoole_server $server, $fd, $from_id, $data)
@@ -46,41 +47,52 @@ abstract class TCP extends Server
 
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $from_id
+     * @param               $fd
+     * @param               $from_id
      */
-    public function doConnect(swoole_server $server, $fd, $from_id){}
+    public function doConnect(swoole_server $server, $fd, $from_id)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $fromId
+     * @param               $fd
+     * @param               $fromId
      */
-    public function doClose(swoole_server $server, $fd, $fromId){}
+    public function doClose(swoole_server $server, $fd, $fromId)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $data
-     * @param $from_id
+     * @param               $fd
+     * @param               $data
+     * @param               $from_id
+     *
      * @return mixed
      */
     abstract public function doWork(swoole_server $server, $fd, $data, $from_id);
 
     /**
      * @param swoole_server $server
-     * @param $data
-     * @param $taskId
-     * @param $workerId
+     * @param               $data
+     * @param               $taskId
+     * @param               $workerId
+     *
      * @return mixed
      */
-    public function doTask(swoole_server $server, $data, $taskId, $workerId){}
+    public function doTask(swoole_server $server, $data, $taskId, $workerId)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $data
-     * @param $taskId
+     * @param               $data
+     * @param               $taskId
+     *
      * @return mixed
      */
-    public function doFinish(swoole_server $server, $data, $taskId){}
+    public function doFinish(swoole_server $server, $data, $taskId)
+    {
+    }
 }

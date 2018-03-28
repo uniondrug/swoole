@@ -9,8 +9,8 @@
 
 namespace Uniondrug\Swoole\Server;
 
-use Uniondrug\Swoole\Server;
 use swoole_server;
+use Uniondrug\Swoole\Server;
 
 /**
  * Class Udp
@@ -25,8 +25,9 @@ abstract class UDP extends Server
      * 服务器同时监听TCP/UDP端口时，收到TCP协议的数据会回调onReceive，收到UDP数据包回调onPacket
      *
      * @param swoole_server $server
-     * @param string $data
-     * @param array $clientInfo
+     * @param string        $data
+     * @param array         $clientInfo
+     *
      * @return void
      */
     public function onPacket(swoole_server $server, $data, array $clientInfo)
@@ -45,40 +46,51 @@ abstract class UDP extends Server
 
     /**
      * @param swoole_server $server
-     * @param $data
-     * @param $clientInfo
+     * @param               $data
+     * @param               $clientInfo
+     *
      * @return mixed
      */
     abstract public function doPacket(swoole_server $server, $data, $clientInfo);
 
     /**
      * @param swoole_server $server
-     * @param $data
-     * @param $taskId
-     * @param $workerId
+     * @param               $data
+     * @param               $taskId
+     * @param               $workerId
+     *
      * @return mixed
      */
-    public function doTask(swoole_server $server, $data, $taskId, $workerId){}
+    public function doTask(swoole_server $server, $data, $taskId, $workerId)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $data
-     * @param $taskId
+     * @param               $data
+     * @param               $taskId
+     *
      * @return mixed
      */
-    public function doFinish(swoole_server $server, $data, $taskId){}
+    public function doFinish(swoole_server $server, $data, $taskId)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $from_id
+     * @param               $fd
+     * @param               $from_id
      */
-    public function doConnect(swoole_server $server, $fd, $from_id){}
+    public function doConnect(swoole_server $server, $fd, $from_id)
+    {
+    }
 
     /**
      * @param swoole_server $server
-     * @param $fd
-     * @param $fromId
+     * @param               $fd
+     * @param               $fromId
      */
-    public function doClose(swoole_server $server, $fd, $fromId){}
+    public function doClose(swoole_server $server, $fd, $fromId)
+    {
+    }
 }

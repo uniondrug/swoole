@@ -3,17 +3,17 @@
  * @author    jan huang <bboyjanhuang@gmail.com>
  * @copyright 2016
  *
- * @see      https://www.github.com/janhuang
- * @see      http://www.fast-d.cn/
+ * @see       https://www.github.com/janhuang
+ * @see       http://www.fast-d.cn/
  */
 
 namespace Uniondrug\Swoole;
-
 
 use Uniondrug\Swoole\AsyncIO\Event;
 
 /**
  * Class EventLoop
+ *
  * @package FastD\Swoole
  */
 class EventLoop
@@ -71,7 +71,8 @@ class EventLoop
 
     /**
      * @param Event $eventAbstract
-     * @param $data
+     * @param       $data
+     *
      * @return mixed
      */
     public function write(Event $eventAbstract, $data)
