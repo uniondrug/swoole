@@ -1,0 +1,8 @@
+/vendor/
+.idea
+*.orig
+/run
+/var
+*.pid
+*.log
+composer.lock
