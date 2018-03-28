@@ -9,7 +9,7 @@
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-class Cli extends \FastD\Swoole\Client
+class Cli extends \Uniondrug\Swoole\Client
 {
     public function receive(swoole_client $client, $data)
     {

@@ -9,6 +9,6 @@
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-$file = new \FastD\Swoole\AsyncIO\File(__DIR__ . '/async.log');
+$file = new \Uniondrug\Swoole\AsyncIO\File(__DIR__ . '/async.log');
 
 $file->write('hello world');

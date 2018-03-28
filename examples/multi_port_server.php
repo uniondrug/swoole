@@ -9,7 +9,7 @@
 
 include __DIR__ . '/../vendor/autoload.php';
 
-class Server extends \FastD\Swoole\Server\TCP
+class Server extends \Uniondrug\Swoole\Server\TCP
 {
     /**
      * @param swoole_server $server
@@ -24,7 +24,7 @@ class Server extends \FastD\Swoole\Server\TCP
     }
 }
 
-class Server2 extends \FastD\Swoole\Server\UDP
+class Server2 extends \Uniondrug\Swoole\Server\UDP
 {
     /**
      * @param swoole_server $server

@@ -9,7 +9,7 @@
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-class DemoTimer extends \FastD\Swoole\Timer
+class DemoTimer extends \Uniondrug\Swoole\Timer
 {
     protected $count = 0;
 
