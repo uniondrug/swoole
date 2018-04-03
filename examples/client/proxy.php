@@ -9,7 +9,7 @@
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-class Proxy extends \FastD\Swoole\Proxy
+class Proxy extends \Uniondrug\Swoole\Proxy
 {
     /**
      * @param $headers

@@ -1,12 +1,16 @@
 {
   "name": "uniondrug/swoole",
-  "description": "Uniondrug swoole (based on fastd/swoole)",
+  "description": "Uniondrug Swoole Component for uniondrug/framework",
   "type": "library",
   "license": "MIT",
   "authors": [
     {
       "name": "janhuang",
       "email": "bboyjanhuang@gmail.com"
+    },
+    {
+      "name": "Uniondrug Dev Team",
+      "email": "dev@uniondrug.cn"
     }
   ],
   "minimum-stability": "stable",

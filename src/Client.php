@@ -14,6 +14,7 @@ use RuntimeException;
 use swoole_client;
 use swoole_http_client;
 use Uniondrug\Http\Cookie;
+use Uniondrug\Packet\Json;
 
 /**
  * Class Client
@@ -23,6 +24,7 @@ use Uniondrug\Http\Cookie;
 class Client
 {
     const HTTP_VERSION = '1.1';
+
     const USER_AGENT = 'PHP swoole/2.1 (+https://github.com/uniondrug/swoole)';
 
     /**
@@ -150,24 +152,34 @@ class Client
      * @param string|array $data
      *
      * @return string
+     * @throws \Uniondrug\Packet\Exceptions\PacketException
      */
     protected function wrapBody($data = '')
     {
-        if (is_array($data)) {
-            $data = http_build_query($data);
-        }
-
+        // HTTP
         if (false !== strpos($this->scheme, 'http')) {
-            $cookies = '';
-            if (!in_array($this->method, ['GET', 'HEAD', 'OPTIONS'])) {
-                $this->setHeader('Content-Length', strlen($data));
-                $this->setHeader('Content-Type', 'application/x-www-form-urlencoded');
-            } else {
-                $this->path .= '?' . $data;
+            // Body
+            $body = '';
+            if (!empty($data)) {
+                if (!in_array($this->method, ['GET', 'HEAD', 'OPTIONS'])) {
+                    $body = Json::encode((array) $data);
+                    $this->setHeader('Content-Length', strlen($body));
+                    $this->setHeader('Content-Type', 'application/json');
+                } else {
+                    if (is_array($data)) {
+                        $data = http_build_query($data);
+                    }
+                    $this->path .= (false === strpos($this->path, '?') ? '?' : '&') . $data;
+                }
             }
+
+            //Cookie
+            $cookies = '';
             foreach ($this->cookies as $cookie) {
                 $cookies .= $cookie->asString();
             }
+
+            //Header
             $ua = static::USER_AGENT;
             $version = static::HTTP_VERSION;
             $header = "{$this->method} {$this->path} HTTP/{$version}\r\n";
@@ -177,11 +189,21 @@ class Client
             if (!empty($cookies)) {
                 $header .= "Cookie: {$cookies}\r\n";
             }
-            $header .= "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n";
+            $header .= "Accept: application/json\r\n";
             $header .= "User-Agent: {$ua}\r\n";
             $header .= "\r\n";
 
-            $data = $header . $data;
+            $data = $header . $body;
+        } else {
+            $body = [
+                'method'  => $this->method,
+                'path'    => $this->path,
+                'headers' => $this->headers,
+            ];
+            if (!empty($data)) {
+                $body['body'] = (array) $data;
+            }
+            $data = Json::encode($body);
         }
 
         return $data;
@@ -372,6 +394,7 @@ class Client
      * @param string|array $data
      *
      * @return mixed
+     * @throws \Uniondrug\Packet\Exceptions\PacketException
      */
     public function send($data = '')
     {

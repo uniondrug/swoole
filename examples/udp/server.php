@@ -5,7 +5,7 @@ include __DIR__ . '/../../vendor/autoload.php';
 /**
  * Class DemoServer
  */
-class DemoServer extends \FastD\Swoole\Server\UDP
+class DemoServer extends \Uniondrug\Swoole\Server\UDP
 {
     /**
      * @param swoole_server $server

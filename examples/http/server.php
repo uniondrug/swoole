@@ -1,21 +1,23 @@
 <?php
-use FastD\Http\JsonResponse;
+
+use Uniondrug\Http\JsonResponse;
 use Psr\Http\Message\ServerRequestInterface;
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-class Http extends \FastD\Swoole\Server\HTTP
+class Http extends \Uniondrug\Swoole\Server\HTTP
 {
     /**
      * @param ServerRequestInterface $serverRequest
+     *
      * @return JsonResponse
      */
     public function doRequest(ServerRequestInterface $serverRequest)
     {
         return new JsonResponse([
             'method' => $serverRequest->getMethod(),
-            '_GET' => $serverRequest->getQueryParams(),
-            '_POST' => $serverRequest->getParsedBody(),
+            '_GET'   => $serverRequest->getQueryParams(),
+            '_POST'  => $serverRequest->getParsedBody(),
         ]);
     }
 }

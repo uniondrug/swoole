@@ -2,7 +2,7 @@
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-$client = new \FastD\Swoole\Client('tcp://127.0.0.1:9527');
+$client = new \Uniondrug\Swoole\Client('tcp://127.0.0.1:9527');
 $client->configure([
     'open_eof_check' => true,
     'package_eof' => "\r\n",

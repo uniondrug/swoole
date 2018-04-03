@@ -9,7 +9,7 @@
 
 include __DIR__ . '/../../vendor/autoload.php';
 
-class WebSocket extends \FastD\Swoole\Server\WebSocket
+class WebSocket extends \Uniondrug\Swoole\Server\WebSocket
 {
     /**
      * @param swoole_websocket_server $server
