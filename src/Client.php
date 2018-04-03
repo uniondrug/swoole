@@ -285,6 +285,18 @@ class Client
     }
 
     /**
+     * @param $timeout
+     *
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
+        $this->timeout = $timeout;
+
+        return $this;
+    }
+
+    /**
      * @param array $headers
      *
      * @return $this
