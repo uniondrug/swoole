@@ -381,8 +381,8 @@ abstract class Server
         $wid = 0;
         $processFlag = isset($this->swoole->master_pid) ? '@' : '#';
         $pid = getmypid();
-        if (isset($this->swoole->worker_id)) {
-            $wid = swoole()->worker_id;
+        if (isset($this->swoole->worker_id) && $this->swoole->worker_id >= 0) {
+            $wid = $this->swoole->worker_id;
             if ($this->swoole->taskworker) {
                 $processFlag = '^'; // taskworker
             } else {
