@@ -93,4 +93,15 @@ abstract class UDP extends Server
     public function doClose(swoole_server $server, $fd, $fromId)
     {
     }
+
+    /**
+     * @param \swoole_server $server
+     * @param int            $src_worker_id
+     * @param mixed          $message
+     *
+     * @return mixed|void
+     */
+    public function doPipeMessage(swoole_server $server, int $src_worker_id, $message)
+    {
+    }
 }

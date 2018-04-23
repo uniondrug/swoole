@@ -381,8 +381,8 @@ abstract class Server
         $wid = 0;
         $processFlag = isset($this->swoole->master_pid) ? '@' : '#';
         $pid = getmypid();
-        if (isset($this->swoole->worker_id)) {
-            $wid = swoole()->worker_id;
+        if (isset($this->swoole->worker_id) && $this->swoole->worker_id >= 0) {
+            $wid = $this->swoole->worker_id;
             if ($this->swoole->taskworker) {
                 $processFlag = '^'; // taskworker
             } else {
@@ -718,6 +718,27 @@ abstract class Server
      * @return mixed
      */
     abstract public function doFinish(swoole_server $server, $data, $taskId);
+
+    /**
+     * @param \swoole_server $server
+     * @param int            $src_worker_id
+     * @param mixed          $message
+     *
+     * @return mixed
+     */
+    public function onPipeMessage(swoole_server $server, int $src_worker_id, $message)
+    {
+        return $this->doPipeMessage($server, $src_worker_id, $message);
+    }
+
+    /**
+     * @param \swoole_server $server
+     * @param int            $src_worker_id
+     * @param mixed          $message
+     *
+     * @return mixed
+     */
+    abstract public function doPipeMessage(swoole_server $server, int $src_worker_id, $message);
 
     /**
      * @param swoole_server $server
