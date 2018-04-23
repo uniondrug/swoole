@@ -720,6 +720,27 @@ abstract class Server
     abstract public function doFinish(swoole_server $server, $data, $taskId);
 
     /**
+     * @param \swoole_server $server
+     * @param int            $src_worker_id
+     * @param mixed          $message
+     *
+     * @return mixed
+     */
+    public function onPipeMessage(swoole_server $server, int $src_worker_id, $message)
+    {
+        return $this->doPipeMessage($server, $src_worker_id, $message);
+    }
+
+    /**
+     * @param \swoole_server $server
+     * @param int            $src_worker_id
+     * @param mixed          $message
+     *
+     * @return mixed
+     */
+    abstract public function doPipeMessage(swoole_server $server, int $src_worker_id, $message);
+
+    /**
      * @param swoole_server $server
      * @param               $fd
      * @param               $from_id
