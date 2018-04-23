@@ -450,7 +450,9 @@ abstract class Server
 
         $pid = (int) @file_get_contents($this->getPidFile());
         if (process_kill($pid, SIGTERM)) {
-            unlink($this->pidFile);
+            if (file_exists($this->pidFile)) {
+                @unlink($this->pidFile);
+            }
         }
 
         $this->console(sprintf('Server <info>%s</info> [<info>#%s</info>] is shutdown...', $this->name, $pid));
